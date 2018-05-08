@@ -1,0 +1,22 @@
+{
+  "modulePathIgnorePatterns": [
+    "/public",
+    "/node_modules/"
+  ],
+  "persistModuleRegistryBetweenSpecs": true,
+  "transformIgnorePatterns": [
+    "/public",
+    "/node_modules/"
+  ],
+  "rootDir": "",
+  "transform": {
+    ".*": "<rootDir>/node_modules/babel-jest"
+  },
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "unmockedModulePathPatterns": [
+    "<rootDir>/node_modules/",
+    "<rootDir>/src/"
+  ]
+}

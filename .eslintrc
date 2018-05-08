@@ -1,0 +1,13 @@
+{
+    "extends": [
+      "standard", 
+      "standard-react", 
+      "standard-flow"
+    ],
+    "plugins": [
+      "flowtype",
+      "class-property"
+    ],
+    "parser": "babel-eslint"
+  }
+  

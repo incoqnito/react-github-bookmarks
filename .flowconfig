@@ -1,0 +1,7 @@
+[ignore]
+/node_modules/react-form
+[include]
+src
+[libs]
+flow-typed
+[options]
