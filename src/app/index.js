@@ -9,10 +9,14 @@ import { routes } from './routes'
 
 import './global'
 
+import AppHeader from './AppHeader/AppHeader'
+
 class Application extends React.PureComponent<{||}> {
   render () {
     return (
       <Provider store={store}>
+      <div>
+        <AppHeader/>
         <Router>
           <Switch>
             {
@@ -23,6 +27,7 @@ class Application extends React.PureComponent<{||}> {
             <Redirect key={-1} to='/browse' />
           </Switch>
         </Router>
+      </div>
       </Provider>
     )
   }
