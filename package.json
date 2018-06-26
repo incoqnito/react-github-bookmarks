@@ -5,6 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "start": "npm run development",
     "test": "jest",
     "development": "webpack-dev-server --env=development",
     "production": "webpack --env=production",
