@@ -1,0 +1,39 @@
+.AdderRoot{
+  flex-grow: 0.3;
+}
+
+.AdderSubContainer{
+  position: relative;
+}
+
+.SuggestionSelector{
+  position: absolute;
+  margin-top: 17;
+  left: 0;
+  right: 0;
+}
+
+.AdderInputRoot{
+  flex-wrap: wrap;
+}
+
+.suggestionMain{
+  /* border: 1px solid red; */
+  padding: 10px 20px;
+}
+
+.suggestionHeader{
+
+}
+
+.suggestionDescription{
+
+}
+
+.suggestionFooter{
+
+}
+
+.suggestionIcon{
+
+}
