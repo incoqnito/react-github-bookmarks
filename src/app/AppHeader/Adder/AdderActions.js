@@ -15,14 +15,22 @@ export function searchRepos(query) {
       });
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
     })
   }
 }
 
-export function addRepo(repo) {
-  return {
-    type: ActionTypes.ADD_BOOKMARK,
-    payload: repo
-  };
+export function addRepo(repoLink) {
+  return function(dispatch) {
+    axios.get(repoLink)
+    .then(response => {
+      dispatch({
+        type: ActionTypes.ADD_BOOKMARK,
+        payload: response.data
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+  }
 }
