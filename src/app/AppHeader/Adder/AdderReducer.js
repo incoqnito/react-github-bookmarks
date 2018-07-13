@@ -1,3 +1,4 @@
+import ActionTypes from '../../ActionTypes'
 
 const InitialState = {
   query: "",
@@ -6,7 +7,7 @@ const InitialState = {
 
 const AdderReducer = (state = InitialState, action) => {
   switch (action.type) {
-    case 'SEARCH_REPOS':
+    case ActionTypes.SEARCH_REPOS:
       state = {
         ...state,
         query: action.payload.query,

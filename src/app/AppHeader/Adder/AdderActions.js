@@ -1,3 +1,4 @@
+import ActionTypes from '../../ActionTypes'
 import axios from 'axios';
 
 //this token has a public scope and is used to test this app
@@ -9,7 +10,7 @@ export function searchRepos(query) {
     axios.get(`https://api.github.com/search/repositories?q=${query}&access_token=${AccessToken}`)
     .then(response => {
       dispatch({
-        type: 'SEARCH_REPOS',
+        type: ActionTypes.SEARCH_REPOS,
         payload: {query:query, searchResults:response.data.items}
       });
     })
@@ -21,7 +22,7 @@ export function searchRepos(query) {
 
 export function addRepo(repo) {
   return {
-    type: 'ADD_REPO',
+    type: ActionTypes.ADD_BOOKMARK,
     payload: repo
   };
 }
