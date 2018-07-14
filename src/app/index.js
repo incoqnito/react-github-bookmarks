@@ -24,7 +24,7 @@ class Application extends React.PureComponent<{||}> {
                 return <Route key={i} path={route.path} component={route.component} />
               })
             }
-            <Redirect key={-1} to='/browse' />
+            <Redirect key={-1} to='/bookmarks' />
           </Switch>
         </Router>
       </div>
