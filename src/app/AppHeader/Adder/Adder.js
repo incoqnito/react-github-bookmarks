@@ -73,7 +73,7 @@ export default class Adder extends React.Component {
   }
 
   getSuggestions(inputValue) {
-    if (inputValue !== '') {
+    if (inputValue !== '' && inputValue !== this.props.lastQuery) {
       this.props.searchRepos(inputValue);
     }
     return this.props.suggestions;

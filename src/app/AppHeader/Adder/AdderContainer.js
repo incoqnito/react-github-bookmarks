@@ -21,7 +21,8 @@ const getSuggestions = (AdderState) => {
 
 
 const mapStateToProps = state => ({
-  suggestions: getSuggestions(state.AdderReducer)
+  suggestions: getSuggestions(state.AdderReducer),
+  lastQuery: state.AdderReducer.query
 })
 
 const mapDispatchToProps = dispatch => {
