@@ -24,6 +24,7 @@
     "babel-polyfill": "^6.26.0",
     "downshift": "^2.0.10",
     "immutable": "^3.8.2",
+    "lodash": "^4.17.10",
     "number-abbreviate": "^2.0.0",
     "polished": "^1.9.2",
     "react": "^16.3.2",
