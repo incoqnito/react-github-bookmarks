@@ -83,7 +83,10 @@ class Bookmark extends React.Component {
     //     </BMHeader>
     //     <BMDescription>{this.props.bm.description}</BMDescription>
     //     <BMFooter>
-    //       <span>{'s ' + abbreviate(this.props.bm.stargazers_count, 2) + ' '}</span>
+    //       <span>
+    //         <Icon dangerouslySetInnerHTML={{ __html: require('../../../assets/star.svg') }} />
+    //         {abbreviate(this.props.bm.stargazers_count, 2) + ' '}
+    //       </span>
     //       <span>{this.props.bm.open_issues_count + ' issues needs help '}</span>
     //       <span>{'updated '}<TimeAgo date={this.props.bm.updated_at} /></span>
     //     </BMFooter>
@@ -103,7 +106,10 @@ class Bookmark extends React.Component {
             </BMHeader>
             <BMDescription>{this.props.bm.description}</BMDescription>
             <BMFooter>
-              <span>{'s ' + abbreviate(this.props.bm.stargazers_count, 2) + ' '}</span>
+              <span>
+                <Icon dangerouslySetInnerHTML={{ __html: require('../../../assets/star.svg') }} />
+                {abbreviate(this.props.bm.stargazers_count, 2) + ' '}
+              </span>
               <span>{this.props.bm.open_issues_count + ' issues needs help '}</span>
               <span>{'updated '}<TimeAgo date={this.props.bm.updated_at} /></span>
             </BMFooter>
@@ -166,6 +172,17 @@ const BMFooter = styled.div`
   letter-spacing: -0.5px;
   word-spacing: -0.1px;
   bottom: 10px;
-  height: 10px;
   * {margin-right: 3px;}
+`
+
+const Icon = styled.span`
+  margin-right: 10.75px;
+  svg {
+    height: 10.75px;
+    position: absolute;
+    bottom: 0px;
+    path {
+      fill: #999;
+    }​
+  }
 `
