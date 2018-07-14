@@ -53,5 +53,9 @@ const BlAdderButton = styled.button`
   outline:none;
 `
 const Icon = styled.div`
-
+  svg {
+    path {
+      fill: #999;
+    }
+  }
 `

@@ -30,5 +30,9 @@ const DB = styled.button`
 `;
 
 const Icon = styled.div`
-  color: #cccccc;
+  svg {
+    path {
+      fill: #999;
+    }
+  }
 `
