@@ -9,6 +9,7 @@
 }
 
 .SuggestionSelector{
+  z-index: 1;
   position: absolute;
   margin-top: 17;
   left: 0;

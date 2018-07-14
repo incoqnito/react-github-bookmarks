@@ -12,7 +12,7 @@ const styles = {
   root: {
     flexGrow: 1,
   },
-    flex: {
+  flex: {
     flex: 1,
   }
 };
@@ -21,7 +21,7 @@ function AppHeader(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" color="default">
+      <AppBar position="static" color="default">
         <Toolbar>
           <Adder />
           <Typography variant="title" color="inherit" align="right" className={classes.flex}>

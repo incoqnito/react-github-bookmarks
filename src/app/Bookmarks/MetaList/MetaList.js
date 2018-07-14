@@ -28,9 +28,8 @@ class MetaList extends React.Component {
 }
 
 const Wrapper = styled.div`
-  padding-top: 140px;
+  padding-top: 80px;
   padding-left: 80px;
-  padding-bottom: 50px;
 `
 
 export default DragDropContext(HTML5Backend)(MetaList)
