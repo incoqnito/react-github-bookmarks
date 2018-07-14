@@ -3,12 +3,14 @@ import Downshift from 'downshift';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import './Adder.css'
+import styled from 'styled-components'
 
 export default class Adder extends React.Component {
 
   render() {
     return (
       <div className="AdderRoot">
+        <Icon dangerouslySetInnerHTML={{ __html: require('../../../assets/search.svg') }} />
         <Downshift onChange={(item) => this.handleSelect(item)}>
           {({
             getInputProps,
@@ -58,6 +60,7 @@ export default class Adder extends React.Component {
     return (
       <TextField
         InputProps={{
+          disableUnderline: true,
           inputRef: ref,
           classes: {
             root: "AdderInputRoot",
@@ -138,3 +141,14 @@ export default class Adder extends React.Component {
   }
 
 }
+
+const Icon = styled.span`
+  svg {
+    position: absolute;
+    margin-right: 200px;
+    height: 32px;
+    path {
+      fill: #999;
+    }
+  }
+`

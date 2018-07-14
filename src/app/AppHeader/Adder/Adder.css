@@ -1,9 +1,11 @@
 .AdderRoot{
+  margin-left: 56px;
   flex-grow: 0.3;
 }
 
 .AdderSubContainer{
   position: relative;
+  margin-left: 60;
 }
 
 .SuggestionSelector{
