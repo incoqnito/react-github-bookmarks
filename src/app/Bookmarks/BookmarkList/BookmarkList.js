@@ -40,7 +40,7 @@ const BL = styled.div`
   box-shadow: 1px 1px 3px 1px #dadbde;
   margin-right: 24px;
   float: left;
-
+  margin-bottom: 24px;
 `
 
 const BLDropZone = styled.div`
