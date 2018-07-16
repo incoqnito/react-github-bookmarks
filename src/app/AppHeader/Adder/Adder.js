@@ -4,13 +4,17 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import './Adder.css'
 import styled from 'styled-components'
+import TimeAgo from 'react-timeago';
+var abbreviate = require('number-abbreviate');
 
 export default class Adder extends React.Component {
 
   render() {
     return (
-      <div className="AdderRoot">
-        <Icon dangerouslySetInnerHTML={{ __html: require('../../../assets/search.svg') }} />
+
+
+      <AdderRoot>
+        <SearchIcon dangerouslySetInnerHTML={{ __html: require('../../../assets/search.svg') }} />
         <Downshift onChange={(item) => this.handleSelect(item)}>
           {({
             getInputProps,
@@ -46,9 +50,12 @@ export default class Adder extends React.Component {
             </div>
           )}
         </Downshift>
-      </div>
+      </AdderRoot>
     );
   }
+
+
+
 
   handleSelect(item){
     this.props.addRepo(item);
@@ -93,29 +100,28 @@ export default class Adder extends React.Component {
           },
         })}
       >
-        <div className="suggestionMain">
-          <div className="suggestionHeader">
+        <Suggestion>
+          <Header>
             {suggestion.full_name}
-          </div>
-          <div className="suggestionDescription">
+          </Header>
+          <Description>
             {suggestion.description ? suggestion.description : null}
-          </div>
-          <div className="suggestionFooter">
+          </Description>
+          <Footer>
             {suggestion.license
               ? this.renderLicense(suggestion.license)
               : null}
-            {suggestion.updated_at
-              ? this.renderUpdatedAt(suggestion.updated_at)
-              : null}
-            {suggestion.open_issues_count
-              ? this.renderOpenIssuesCount(suggestion.open_issues_count)
-              : null}
-            {suggestion.stargazers_count
-              ? this.renderStargazersCount(suggestion.stargazers_count)
-              : null}
-          </div>
-        </div>
-        {this.renderSuggestionIcon(suggestion)}
+            <span>{'Updated '}<TimeAgo date={suggestion.updated_at} /></span>
+            <span>{suggestion.open_issues_count + ' issues need help '}</span>
+            <span>
+              <StarIcon dangerouslySetInnerHTML={{ __html: require('../../../assets/star.svg') }} />
+              {abbreviate(suggestion.stargazers_count, 2) + ' '}
+            </span>
+          </Footer>
+          {suggestion.saved
+            ? <SavedIcon dangerouslySetInnerHTML={{ __html: require('../../../assets/check.svg') }} />
+            : <AddIcon dangerouslySetInnerHTML={{ __html: require('../../../assets/plus.svg') }} />}
+        </Suggestion>
       </div>
     );
   }
@@ -124,25 +130,15 @@ export default class Adder extends React.Component {
     return <span>{license.name}</span>
   }
 
-  renderUpdatedAt(updated_at){
-    return <span>{'Updated ' + updated_at}</span>
-  }
-
-  renderOpenIssuesCount(open_issues_count){
-    return <span>{open_issues_count + 'issues need help'}</span>
-  }
-
-  renderStargazersCount(stargazers_count){
-    return <span>{'s. ' + stargazers_count}</span>
-  }
-
-  renderSuggestionIcon(suggestion){
-    return null;
-  }
-
 }
 
-const Icon = styled.span`
+const AdderRoot = styled.div`
+  margin-left: 56px;
+  flex: 3 0 auto;
+  max-width: 800px;
+`
+
+const SearchIcon = styled.span`
   svg {
     position: absolute;
     margin-right: 200px;
@@ -150,5 +146,69 @@ const Icon = styled.span`
     path {
       fill: #999;
     }
+  }
+`
+
+const Suggestion = styled.div`
+  position: relative;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  padding-left: 60px;
+  height: 130px;
+  border-bottom: 1px solid #ccc;
+  overflow-x: hidden;
+`
+
+const Header = styled.div`
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  color: #2b7be8;
+  font-weight: bold;
+`
+
+const Description = styled.div`
+  padding-top 5px;
+  font-size: 0.8em;
+`
+
+const Footer = styled.div`
+  font-size: 0.65em;
+  position: absolute;
+  bottom: 10px;
+  span {
+    margin-right: 16px;
+  }
+`
+
+const StarIcon = styled.span`
+  margin-right: 0px !important;
+  svg {
+    height: 9px;
+    path {
+      fill: #999;
+    }​
+  }
+`
+
+const SavedIcon = styled.span`
+  position absolute;
+  top: 55px;
+  right: 38px;
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+`
+
+const AddIcon = styled.span`
+  position absolute;
+  top: 55px;
+  right: 38px;
+  svg {
+    height: 20px;
+    width: 20px;
+    path {
+      fill: #999;
+    }​
   }
 `
