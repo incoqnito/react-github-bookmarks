@@ -10,6 +10,7 @@ import { routes } from './routes'
 import './global'
 
 import AppHeader from './AppHeader/AppHeader'
+import SnackBar from './SnackBar/SnackBarContainer'
 
 class Application extends React.PureComponent<{||}> {
   render () {
@@ -27,6 +28,7 @@ class Application extends React.PureComponent<{||}> {
             <Redirect key={-1} to='/bookmarks' />
           </Switch>
         </Router>
+        <SnackBar/>
       </div>
       </Provider>
     )
