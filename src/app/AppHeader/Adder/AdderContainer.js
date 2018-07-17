@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { searchRepos, addRepo } from './AdderActions'
 import Adder from './Adder'
+import { showMessage } from '../../SnackBar/SnackBarActions'
 
 const getSuggestions = (state) => {
   let inputValue = state.AdderReducer.query;
@@ -43,7 +44,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return{
     searchRepos: (query) => { dispatch(searchRepos(query)); },
-    addRepo: (url) => { dispatch(addRepo(url)); }
+    addRepo: (url) => { dispatch(addRepo(url)); },
+    showMessage: (message) => { dispatch(showMessage(message)); }
   };
 };
 

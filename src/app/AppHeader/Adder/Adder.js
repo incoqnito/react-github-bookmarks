@@ -8,14 +8,11 @@ import TimeAgo from 'react-timeago';
 var abbreviate = require('number-abbreviate');
 
 export default class Adder extends React.Component {
-
   render() {
     return (
-
-
       <AdderRoot>
         <SearchIcon dangerouslySetInnerHTML={{ __html: require('../../../assets/search.svg') }} />
-        <Downshift onChange={(item) => this.handleSelect(item)}>
+        <Downshift onChange={(item) => this.handleSelect(item)} itemToString={() => {return '';}}>
           {({
             getInputProps,
             getItemProps,
@@ -39,7 +36,7 @@ export default class Adder extends React.Component {
                     this.renderSuggestion({
                       suggestion,
                       index,
-                      itemProps: getItemProps({ item: suggestion.full_name }),
+                      itemProps: getItemProps({ item: suggestion }),
                       getItemProps,
                       highlightedIndex,
                       selectedItem,
@@ -54,12 +51,12 @@ export default class Adder extends React.Component {
     );
   }
 
-
-
-
-  handleSelect(item){
-    this.props.addRepo(item);
-    //clearSelection();
+  handleSelect(Bookmark){
+    if (Bookmark.saved) {
+      this.props.showMessage('This Repo is already bookmarked.');
+    } else {
+      this.props.addRepo(Bookmark.url);
+    }
   }
 
   renderInput(inputProps){
@@ -92,7 +89,7 @@ export default class Adder extends React.Component {
         {...getItemProps({
           key: suggestion.full_name,
           index,
-          item: suggestion.url,
+          item: suggestion,
           style: {
             backgroundColor: highlightedIndex === index
               ? 'lightgray'
@@ -109,7 +106,7 @@ export default class Adder extends React.Component {
           </Description>
           <Footer>
             {suggestion.license
-              ? this.renderLicense(suggestion.license)
+              ? <span>{suggestion.license.name}</span>
               : null}
             <span>{'Updated '}<TimeAgo date={suggestion.updated_at} /></span>
             <span>{suggestion.open_issues_count + ' issues need help '}</span>
@@ -125,11 +122,6 @@ export default class Adder extends React.Component {
       </div>
     );
   }
-
-  renderLicense(license){
-    return <span>{license.name}</span>
-  }
-
 }
 
 const AdderRoot = styled.div`
