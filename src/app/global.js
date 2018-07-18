@@ -9,6 +9,7 @@ injectGlobal`
   }
 
   html, body, #root {
+    background-color: #f5f7fa;
     width: 100%;
     height: 100%;
     margin: 0;

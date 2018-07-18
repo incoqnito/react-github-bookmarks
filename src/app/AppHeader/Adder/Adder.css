@@ -1,0 +1,23 @@
+.AdderSubContainer{
+  position: relative;
+}
+
+.SuggestionSelector{
+  z-index: 1;
+  position: absolute;
+  margin-top: 16px;
+  padding-bottom: 24px;
+  left: 0;
+  right: 0;
+}
+
+.AdderInputRoot{
+  flex-wrap: wrap;
+  padding-left: 60px;
+}
+
+@media only screen and (max-width: 600px) {
+    .SuggestionSelector{
+      margin-top: 8px;
+    }
+}
