@@ -7,8 +7,8 @@
 - axios
 - react-dnd
 - redux
-- react-form
-- immutable
+- final-form / react-final-form
+- immutability-helper
 - styled-components
 
 You can use any additonal library you want
