@@ -1,5 +1,5 @@
 // @flow
-import React from 'react'
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { HashRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
@@ -9,7 +9,7 @@ import { routes } from './routes'
 
 import './global'
 
-class Application extends React.PureComponent<{||}> {
+class Application extends Component {
   render () {
     return (
       <Provider store={store}>
@@ -29,4 +29,5 @@ class Application extends React.PureComponent<{||}> {
 }
 
 ReactDOM.render(
-  <Application />, (document.getElementById('root'): any))
+  <Application />, (document.getElementById('root'))
+)
