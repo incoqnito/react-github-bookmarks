@@ -9,10 +9,15 @@ import { routes } from './routes'
 
 import './global'
 
+import AppHeader from './AppHeader/AppHeader'
+import SnackBar from './SnackBar/SnackBarContainer'
+
 class Application extends React.PureComponent<{||}> {
   render () {
     return (
       <Provider store={store}>
+      <div>
+        <AppHeader/>
         <Router>
           <Switch>
             {
@@ -20,9 +25,11 @@ class Application extends React.PureComponent<{||}> {
                 return <Route key={i} path={route.path} component={route.component} />
               })
             }
-            <Redirect key={-1} to='/browse' />
+            <Redirect key={-1} to='/bookmarks' />
           </Switch>
         </Router>
+        <SnackBar/>
+      </div>
       </Provider>
     )
   }
